@@ -1,16 +1,18 @@
 resource "google_compute_instance" "jenkins" {
-    name         = "jenkins-instance"
-    machine_type = "e2-standard-2"
-    zone         = "us-central1-a"
+    count        = var.instance_count
+    name         = "${var.instance_name}-${count.index}"
+    machine_type = var.machine_type
+    zone         = var.zone
+    project      = var.project
 
     boot_disk {
         initialize_params {
-            image = "debian-cloud/debian-9"
+            image = var.boot_disk_image
         }
     }
 
     network_interface {
-        network = "default"
+        network = var.network
         access_config {
         }
     }
