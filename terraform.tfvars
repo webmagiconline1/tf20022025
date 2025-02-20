@@ -1,0 +1,6 @@
+instance_name   = "jenkins-instance"
+machine_type    = "e2-standard-2"
+zone            = "us-central1-a"
+project         = "sandbox-developer-448514"
+boot_disk_image = "debian-cloud/debian-12"
+network         = "default"
